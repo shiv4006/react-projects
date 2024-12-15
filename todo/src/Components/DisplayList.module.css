@@ -84,7 +84,7 @@
   }
 
   .list-item span {
-    width: 73.5%;
+    width: 70%;
   }
 
   .buttons {
@@ -92,6 +92,6 @@
   }
 
   .buttons button {
-    padding-inline: 2px;
+    padding-inline: 5px;
   }
 }

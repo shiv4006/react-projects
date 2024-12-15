@@ -7,29 +7,38 @@ import { DateAndTime } from "./DateAndTime";
 
 
 export const TodoMain = () => {
-  const localStorageKey = "todos";
-  const [data, setData] = useState(() => {
+  const localStorageKey = "todos"; // key for local storage access
+
+  const [data, setData] = useState(() => { // the todo list data -> state
     const savedData = localStorage.getItem({ localStorageKey });
     return savedData ? JSON.parse(savedData) : [];
   });
 
-  useEffect(() => {
+  useEffect(() => { // in case of data change it will automatically add that to local storage
     localStorage.setItem({ localStorageKey }, JSON.stringify(data));
   }, [data]);
 
-  const addDataToList = (value, checked) => {
-    if (data.includes(value)) return;
+  // add received data from form to the data list and with that effect changes reflect to local storage
+  const addDataToList = (value, checked) => { 
+    let flag = false;
+    data.map((curr) => {
+      if(curr.value == value) // if value already present then avoid to add again
+          flag = true;
+    });
 
-    setData((prev) => {
-      const updatedData = [...prev, { value, checked }];
+    if(flag) // avoid duplication
+        return;
+
+    setData((prev) => { // no duplication then add data
+      const updatedData = [...prev, { value, checked }]; // prev + new_data
       return updatedData;
     });
   };
 
-  const changeCheckValue = (changeEle) => {
+  const changeCheckValue = (changeEle) => { // checkbox value change whehter marked completed or not
     setData((prev) => {
       const updatedData = data.filter((curr) => {
-        if (curr.value == changeEle.value)
+        if (curr.value == changeEle.value) // toggling checkbox value
           curr.checked = !curr.checked;
 
         return curr;
@@ -39,7 +48,7 @@ export const TodoMain = () => {
     });
   }
 
-  const deleteElement = (deleteEle) => {
+  const deleteElement = (deleteEle) => { // deleting element from the list and with effect also from LS
     setData((prev) => {
       const updatedData = data.filter((curr) => {
         return curr.value != deleteEle.value ? curr : "";
@@ -49,7 +58,7 @@ export const TodoMain = () => {
     });
   }
 
-  const deleteAllData = () => {
+  const deleteAllData = () => { // emptying list if clear all button is clicked
     setData([]);
   }
 

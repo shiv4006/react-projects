@@ -4,19 +4,20 @@ import { useState } from 'react';
 import styles from './TodoForm.module.css'
 
 export const TodoForm = ({addDataToList}) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(""); // managing input change with key typing effect
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
+  // calling addDataToList function to add the form input to the list
   const handleOnSubmit = (e) => {
     e.preventDefault();
     
     const value = inputValue.trim();
     if (value) {
       addDataToList(value, false);
-      setInputValue("");
+      setInputValue(""); // emptying the input value when data gets added
     }
   };
 

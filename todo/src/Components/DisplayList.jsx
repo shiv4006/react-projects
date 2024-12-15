@@ -5,10 +5,12 @@ import { RiCheckboxCircleLine } from "react-icons/ri";
 import { MdOutlineDeleteForever } from "react-icons/md";
 
 export const DisplayList = ({ data, changeCheckValue, deleteElement}) => {
+  // toggling checkbox when clicked
   const handleCheckChange = (currEle) => {
     changeCheckValue(currEle);
   }
 
+  // deleting data from the list
   const handleDelete = (currEle) => {
     deleteElement(currEle);
   }
