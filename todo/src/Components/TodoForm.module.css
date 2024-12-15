@@ -1,0 +1,33 @@
+.form input {
+  width: 350px;
+  border: none;
+  outline: none;
+  padding-block: 10px;
+  padding-inline-start: 15px;
+  font-size: 1.25rem;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: #024CAA;
+  background-color: #DFF2EB;
+}
+
+.form button {
+  border: none;
+  outline: none;
+  color: #bbb;
+  width: 75px;
+  background-color: #003161;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-block: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: all 300ms ease-in;
+  cursor: pointer;
+}
+
+.form button:is(:hover, :focus-visible) {
+  color: #003161;
+  background-color: #FFF4B7;
+}
