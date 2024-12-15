@@ -15,7 +15,7 @@ export const TodoForm = ({addDataToList}) => {
     
     const value = inputValue.trim();
     if (value) {
-      addDataToList(value);
+      addDataToList(value, false);
       setInputValue("");
     }
   };

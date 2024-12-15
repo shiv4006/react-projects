@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding-left: 0;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .list-item {
@@ -23,28 +23,44 @@
 
 .list-item span {
   font-size: 1.25rem;
-  width: 280px;
+  width: 75%;
   overflow: hidden;
   padding-left: 10px;
 }
 
 .buttons {
-  margin-inline: 10px;
+  padding-inline-end: 5px;
 }
 
 .buttons button {
   background: none;
   border: none;
-  cursor: pointer;
+  padding-inline: 5px;
 }
 
 .uncheck, .checked, .delete {
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.checked {
+.uncheck {
   display: none;
-  color: green;
+}
+
+.checked { 
+  display: none;
+}
+
+.checked.active {
+  display: inline-block;
+  color: #cfc;
+  filter: drop-shadow(0px 0px 2px rgba(255, 255, 0, 1));
+}
+
+.uncheck.active {
+  display: inline-block;
+  color: #ccc;
+  filter: drop-shadow(0px 0px 2px rgba(0, 255, 255, .9));
 }
 
 .delete {
@@ -52,4 +68,30 @@
   font-size: 1.6rem;
 }
 
+.line-through {
+  text-decoration: line-through;
+  /* text-decoration-thickness: 2px; */
+}
 
+.no-line-through {
+  text-decoration: none;
+}
+
+
+@media (max-width: 488px) {
+  .lists {
+    width: 90%;
+  }
+
+  .list-item span {
+    width: 73.5%;
+  }
+
+  .buttons {
+    padding-inline-end: 0;
+  }
+
+  .buttons button {
+    padding-inline: 2px;
+  }
+}

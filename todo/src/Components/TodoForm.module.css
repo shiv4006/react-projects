@@ -1,3 +1,6 @@
+.form {
+  width: 100%;
+}
 .form input {
   width: 350px;
   border: none;
@@ -30,4 +33,13 @@
 .form button:is(:hover, :focus-visible) {
   color: #003161;
   background-color: #FFF4B7;
+}
+
+@media (max-width: 488px) {
+  .form input {
+    width: 72.5%;
+  }
+  .form button {
+    width: 60px
+  }
 }
